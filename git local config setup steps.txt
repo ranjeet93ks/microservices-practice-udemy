@@ -1,0 +1,23 @@
+
+
+1. open git-bash and access particular local repo
+2. mkdir git-localconfig-repo
+3. cd git-localconfig-repo
+4. git init
+5. touch limits-service and paste some properties after this file --> 
+     limits-service.minimum=3
+     limits-service.maximum=997
+6. git add . & git commit -m "adding limits-service properties in git-localconfig-repo"
+7. pwd enter and copy the file location(/d/My-Works/Java-Springboot-WS/udemy/udemy-java-springboot/microservices-practice-project/git-localconfig-repo) from git-bash 
+8. spring.cloud.config.server.git.uri=file://D:/My-Works/Java-Springboot-WS/udemy/udemy-java-springboot/microservices-practice-project/git-localconfig-repo
+Note :- spring.cloud.config.server.git.uri=file://file location 
+9. @EnableConfigServer && SpringBootApplication
+10. hit--> http://localhost:8888/limits-service/default in chrome after restart server 
+11. Add Jason Formatter plugin in chrome as o/p of this url will be in jason format
+12. http://localhost:8080/limits --> data will fetch from limts-service.properties present in git-localconfig-repo folder.
+13. create limits-service-qa and limits-service-dev in git-localconfig-repo folder and change the properties values
+14. hit--> http://localhost:8888/limits-service/dev in chrome after restart server -> corresponding values along with default values
+15. hit--> http://localhost:8888/limits-service/qa in chrome after restart server -> corresponding values along with default values
+16. for different microservices, we can multiple properties file here like microservice-x.properties,microservice-x-dev.properties,microservice-x-qa.properties
+
+
