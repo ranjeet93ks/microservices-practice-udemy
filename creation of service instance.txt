@@ -1,0 +1,6 @@
+1. right click on project
+2. run as ->run config.
+3. change the name of existing name to name1
+4. right click on name n duplicate
+5. rename the duplicate 
+6. in x=argument tab under vm arg add -->  -Dserver.port=800....whatever port no
