@@ -1,12 +1,12 @@
 
 
-1. open git-bash and access particular local repo
+1. open git-bash and access particular local directory
 2. mkdir git-localconfig-repo
 3. cd git-localconfig-repo
 4. git init
-5. touch limits-service and paste some properties after this file --> 
+5. open notepad++, select language as properties , paste some properties in this file like 
      limits-service.minimum=3
-     limits-service.maximum=997
+     limits-service.maximum=997  and save as limits-service
 6. git add . & git commit -m "adding limits-service properties in git-localconfig-repo"
 7. pwd enter and copy the file location(/d/My-Works/Java-Springboot-WS/udemy/udemy-java-springboot/microservices-practice-project/git-localconfig-repo) from git-bash 
 8. spring.cloud.config.server.git.uri=file://D:/My-Works/Java-Springboot-WS/udemy/udemy-java-springboot/microservices-practice-project/git-localconfig-repo

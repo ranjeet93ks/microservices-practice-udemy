@@ -23,6 +23,25 @@ https://github.com/in28minutes/spring-microservices-v2/blob/main/03.microservice
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ------->>>>>>>>>>>Communication b/w microservices -load balancing, circuit breaker ,.......
 
-4. currency-exchange-service :-
+4. currency-exchange-service :- at 8000 and 8001(using Run Config (-Dserver.port=8001)) 
+    http://localhost:8000/h2-console/  -- for h2 db
 
-5. currency-conversion-service :-
+5. currency-conversion-service :- at 8100
+
+6. Invoking currency-exchange-service from currency-conversion-service :- using Rest Template
+
+7. Invoking currency-exchange-service from currency-conversion-service :- using Feign Rest Client -- it makes easier to call 1 microservice in other microservice 
+    a) add dependency in pom of currency-conversion-service 
+	b) 
+	
+8. Naming server : Eureka Naming Server :- Previously we need to change the url as url was hardcoded (let say if we were using localhost:8000 
+                   but 8000 is busy so we want to use 8001, but here we need to change the code), using naming server it will auto load balance mean it will 
+				   dynamically assign the running port.
+	a) eureka server dependency in pom of naming server
+	b) @EnableEurekaServer along with @SpringBootApplication
+	
+9) api-gateway  (Spring Cloud API Gateway) :- 
+    a) Eureka Discovery Client dependency in pom 
+	b) Gateway dependency in pom
+	
+  
