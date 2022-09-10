@@ -1,0 +1,28 @@
+
+-------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>> Microservices ---->>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+https://github.com/in28minutes/spring-microservices-v2/blob/main/03.microservices/01-step-by-step-changes/microservices-v2-1.md#step-19   -->Debugging Guide - Microservices - V2
+
+1. limit-service :- read data from application.properties using @ConfigurationProperties("limits-service") - configuration class
+    http://localhost:8080/limits  --O/P--> {"minimum": 0,"maximum": 999} => value from application.properties
+	
+2. spring-cloud-config-server :- it's a config server, it connect with git to read config properties using spring.cloud.config.server.git.uri=file://D:/My-Works/microservices-practice-project/git-localconfig-repo
+    http://localhost:8888/limits-service/default or http://localhost:8888/limits-service/dev or http://localhost:8888/limits-service/qa
+	
+3. connect limit-service to spring-cloud-config-server :- 
+    a) add <!-- Config Client --> dependency in pom of limit-service 
+    b)spring.config.import=optional:configserver:http://localhost:8888 in application.properties of limit-service (if cloud-config-server is mandatory for limit-service, then remove optional)
+    c)spring.application.name=limits-service so from git repo it will read data start with limit-service
+	after restart http://localhost:8080/limits --O/P--> {"minimum": 0,"maximum": 999} => value from limit-service properties defined in git repo.(a/c to active profile mentioned in limit-service pom)
+	We have created three files in git repo limits-service, limits-service-dev & limits-service-qa 
+	## To Fetch properties from corresponding limits-service-dev.properties file
+        spring.cloud.config.profile=dev  in limit-service pom
+
+   Similarly, we can create properties for diffrent microservices like limit-service. So, biggest advantage of it is all config peroperties are centralized at 1 place.
+   
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------->>>>>>>>>>>Communication b/w microservices -load balancing, circuit breaker ,.......
+
+4. currency-exchange-service :-
+
+5. currency-conversion-service :-
