@@ -82,6 +82,10 @@ docker conatiner run -p portNumber:portNumber -d  --restart=always specific rele
 docker events
 docker top id 
 docker stats  -- how much memory its using, how much CPU is being used n all ...
+docker run -p portNumber:portNumber -m 512m --cpu-quota 5000 -d specific release  -> maxm memory assigned to this container is 512m and 5% of cpu assigned to this container 
+                                  (100000 means 100% & hence 5000 means 5%)
+
+								  
 
 
 
