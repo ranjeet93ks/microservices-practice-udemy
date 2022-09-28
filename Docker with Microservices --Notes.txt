@@ -1,0 +1,136 @@
+
+-------------------Docker with Microservices using Spring Boot ans Spring Cloud  :-------------------
+   
+Enterprises are moving towards Microservices Architecture
+   
+Docker is a software platform that allows you to build, test, and deploy applications quickly. 
+   Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime. 
+   Using Docker, you can quickly deploy and scale applications into any environment and know your code will run.
+   
+   
+Create Docker image for each microservice.
+Docker image contains everything(runtime, libraries, dependencies ,...) a microservice needs to run.
+We can run these docker images the same way on any infrastructure e.g local machine, corporate data centre, cloud(like AWS. AZURE, GCD ...) ...
+Image - A static Template - A set of Bytes
+Container :- Running version of the image.
+Fore same image, we can have multiple container running.
+
+Install Docker :-
+   https://docs.docker.com/desktop/install/windows-install/  and follow instructions
+    after installation, restart the PC
+   
+   
+RECOMMENDATION : Use PowerShell in Windows!
+  Recommendation 1: If you are using Windows, make sure that you use PowerShell instead of Command Prompt.
+
+  Recommendation 2
+  If you are using Window 10 and are using docker toolbox
+   => Use 192.168.99.100 instead of localhost.
+     Note: If 192.168.99.100 does not work, you can find the IP by using the command docker-machine ip
+
+  Reason :In Window 10 when using docker toolbox, docker is configured to use the default machine with IP 192.168.99.100
+  
+from Powershell :-
+   docker --version 
+   https://hub.docker.com/ -->default registry -- all repo are there, public and private both
+   docker run specific release of particular repo  -- springboot application will be launched
+   control+C to terminate the running conatiner 
+   if error to access resr api  then control+called
+   docker run -p portNumber:portNumber specific release  --> portNumber mentioned in log when springboot application launched
+   docker run -p portNumber:portNumber -d specific release  --> -d means detached mode 
+   docker logs id --id received as o/p when we run in detached mode as default no logs will be printed.
+   docker container ls -->list of running conatiner
+   docker run -p portNumber1:portNumber -d specific release  --> same image but in different container.
+   docker logs -f id 
+   docker images --list of all local images
+   docker container ls -a  --> all containers whether running or not
+   docker container stop id -- to stop running conatiner
+   
+   
+Docker Architecture :- Docker client- place where we run commands and these commands sent to Docker Daemon.
+ whenever we install docker even on local, Docker Client and Docker Daemon both got installed and it acts as client-server arch.
+ Docker client -> Docker Daemon ->managing the conatiners
+                                ->managing the local images
+							    ->responsible for pulling and pushing of locally created images from/to Image Registry.
+			Note :- if we run the container, it will download the release only if its not present locally.
+
+
+Why Docker is popular ?
+-light weight and efficient
+-easy for deployment
+-using docker on local as well as on cloud is very easy.
+
+
+docker tag repo:release repo:latest ---> so now we would have 2 diff tag with same release.
+docker pull mysql  -- it will pull latest version of mysql from registry
+docker search mysql  --search for mysql  -- officially OK
+docker image inspect id --details 
+docker image history id --
+docker image remove id --delete from local not from docker hub(image registry)
+
+
+docker run -p ......  or docker container run -p .....
+docker container pause id --to pause
+docker logs -f id
+docker container unpause id --to unpause (start)
+docker conatiner inspect id
+docker conatiner ls -a -- list of all containers
+docker conatiner prune -- it will remove all stopped container
+docker conatiner stop id --graceful shutdown =>SIGTERM
+docker conatiner kill id  --immediately terminate the process =>SIGKILL
+docker conatiner run -p portNumber:portNumber -d  --restart=always specific release  ----restart=no ->default  -- run command give 1 id for container
+docker events
+docker top id 
+docker stats  -- how much memory its using, how much CPU is being used n all ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+   
+   
+   
+   
+  
+   
+   

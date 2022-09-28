@@ -1,6 +1,6 @@
 
 -------------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>> Microservices ---->>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
+https://github.com/in28minutes/spring-microservices-v2
 https://github.com/in28minutes/spring-microservices-v2/blob/main/03.microservices/01-step-by-step-changes/microservices-v2-1.md#step-19   -->Debugging Guide - Microservices - V2
 
 1. limit-service :- read data from application.properties using @ConfigurationProperties("limits-service") - configuration class
