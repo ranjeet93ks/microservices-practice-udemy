@@ -1,6 +1,7 @@
 package com.ranjs.microservices.limitsservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,10 +14,20 @@ public class LimitsController {
 	@Autowired
 	private Configuration configuration;
 
+	@Value("${limit-service.minimum}")
+	private int min;
+
+	@Value("${limit-service.maximun}")
+	private int max;
+
+	@Value("${insurance.provider.url}")
+	private String url;
+
 	@GetMapping("/limits")
 	public Limits retrieveLimits() {
-		return new Limits(configuration.getMinimum(), 
-				configuration.getMaximum());
+		System.out.println("url : " + url);
+		System.out.println(" min and max value -> " + configuration.getPort() + " : " + configuration.getName());
+		return new Limits(min, max);
 //		return new Limits(1,1000);
 	}
 }

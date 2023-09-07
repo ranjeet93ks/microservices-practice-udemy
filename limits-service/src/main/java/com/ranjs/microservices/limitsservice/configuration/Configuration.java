@@ -4,25 +4,25 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties("limits-service")
+@ConfigurationProperties("service") // used to fetch value from application.properties
 public class Configuration {
-	private int minimum;
-	private int maximum;
+	private int port;
+	private String name;
 
-	public int getMinimum() {
-		return minimum;
+	public int getPort() {
+		return port;
 	}
 
-	public void setMinimum(int minimum) {
-		this.minimum = minimum;
+	public void setPort(int port) {
+		this.port = port;
 	}
 
-	public int getMaximum() {
-		return maximum;
+	public String getName() {
+		return name;
 	}
 
-	public void setMaximum(int maximum) {
-		this.maximum = maximum;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }
