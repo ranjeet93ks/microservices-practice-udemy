@@ -15,13 +15,13 @@ public class LimitsController {
 	private Configuration configuration;
 
 	@Value("${limit-service.minimum}")
-	private int min;
+	private int min;//from limits-service.properties
 
 	@Value("${limit-service.maximun}")
-	private int max;
+	private int max;//from limits-service.properties
 
 	@Value("${insurance.provider.url}")
-	private String url;
+	private String url;//from application.properties
 
 	@GetMapping("/limits")
 	public Limits retrieveLimits() {

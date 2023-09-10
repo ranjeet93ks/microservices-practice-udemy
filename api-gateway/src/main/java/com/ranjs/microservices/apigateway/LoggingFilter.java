@@ -1,4 +1,4 @@
-package com.in28minutes.microservices.apigateway;
+package com.ranjs.microservices.apigateway;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,14 +11,11 @@ import reactor.core.publisher.Mono;
 
 @Component
 public class LoggingFilter implements GlobalFilter {
-
 	private Logger logger = LoggerFactory.getLogger(LoggingFilter.class);
-	
+
 	@Override
-	public Mono<Void> filter(ServerWebExchange exchange, 
-			GatewayFilterChain chain) {
-		logger.info("Path of the request received -> {}", 
-				exchange.getRequest().getPath());
+	public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+		logger.info("Path of the request received -> {}", exchange.getRequest().getPath());
 		return chain.filter(exchange);
 	}
 
